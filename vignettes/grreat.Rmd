@@ -1,0 +1,66 @@
+---
+title: "grreat"
+author: "Christoph Kratz"
+date: "10/10/2021"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{grreat}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(packlearn)
+```
+
+## Background
+
+Picture this: you've just eaten some amazing food.  It's so amazing you've lost the ability to express just how amazing it is in words. What do you do?
+
+Well just fire up a computer, start `R`, install this amazing package (using `devtools::install_github("bogsnork/packlearn"))`, load the package with `library(packlearn)` and... **use the `grreat` function** with `grreat(name = "awesome food")` and praise is generated for you!
+
+## Wait, this works with any food??
+Yes, any foodstuff you can think of.  The only criterion is that it has a name that you can type.  
+
+## I fid this hard to believe.
+It's true
+
+## Prove it!
+OK, but hold tight.  
+
+Say you've just eaten beef...
+
+```{r}
+grreat(food = "beef")
+```
+
+Then you had some pie...
+
+```{r}
+grreat(food = "pie")
+```
+
+## But I'm vegetarian!
+I'm not finished ...
+
+```{r}
+grreat(food = "vegetarian pie")
+```
+
+## I'm gluten intolerant
+We have *catered* for that ;-)
+
+```{r}
+grreat(food = "rice")
+```
+
+## What if I want to praise a drink, a piece of art, a person??
+Regrettably that functionality has not been enabled in the current version of the package.  
+
