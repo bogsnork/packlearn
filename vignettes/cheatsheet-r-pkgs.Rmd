@@ -16,9 +16,12 @@ knitr::opts_chunk$set(
 
 ```{r setup}
 library(devtools)
+library(testthat)
 ```
 
 ## Package setup
+
+At the beginning of a project, run these commands once.  No harm will come if you run them again, but you don't need to unless you want to change something.  
 
 ```{r pkg-set-up, eval=FALSE, include=TRUE}
 library(devtools)
@@ -37,13 +40,8 @@ use_package("MASS", "Suggests")
 # Set up other files 
 use_readme_md()
 
-# write tests
-use_test("my-test")
-
-# adding data for tests
-x <- 1
-y <- 2
-use_data(x, y)
+# use test-that
+use_testthat()
 
 # Use git 
 use_git()
@@ -78,13 +76,45 @@ Once the package has been set up, the workflow is:
 - create a script  
 - creative cycle  
   - edit  
-  - load  
+  - write test
   - test  
+- load
 - commit
 - check
 - document
 - install
 
+```{r workflow, eval=FALSE, include=TRUE}
+# create or edit a script
+use_r("myscript1")
+
+# adding data for tests
+use_data_raw(name = "mydataset") #create script for making dataset
+
+  #example content of data file:  
+  x <- 1
+  y <- 2
+
+use_data(x, y)
+
+# load
+load_all()
+
+# write test
+use_test("myscript1") #creates or opens a test file
+  #example content of test file: 
+  test_that("multiplication works", {
+    expect_equal(2 * 2, 4)
+  })
+
+
+# test
+test()
+
+
+
+
+```
 
 
 
