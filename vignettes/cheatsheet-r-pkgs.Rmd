@@ -1,0 +1,92 @@
+---
+title: "cheatsheet-r-pkgs"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{cheatsheet-r-pkgs}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(devtools)
+```
+
+## Package setup
+
+```{r pkg-set-up, eval=FALSE, include=TRUE}
+library(devtools)
+library(usethis)
+
+# Create a new package
+path <- file.path(tempdir(), "mypkg")
+create_package(path)
+
+# Modify the description 
+use_mit_license("My Name")
+
+# Add packages to use in package
+use_package("MASS", "Suggests")
+
+# Set up other files 
+use_readme_md()
+
+# write tests
+use_test("my-test")
+
+# adding data for tests
+x <- 1
+y <- 2
+use_data(x, y)
+
+# Use git 
+use_git()
+```
+
+
+## Git credentials
+
+Follow the instructions here: https://usethis.r-lib.org/articles/articles/git-credentials.html#practical-instructions-1.  Have a look at the topic on 'scope' in particular.  
+
+```{r git, eval=FALSE, include=TRUE}
+# check your settings
+gh_token_help()
+
+git_sitrep()
+
+# find and remove legacy credentials in `.Renviron` (`GITHUB_PAT` or `GITHUB_TOKEN`)
+usethis::edit_r_environ()
+
+# create a personal access token on github 
+usethis::create_github_token()
+
+# enter PAT to local git credentials store
+gitcreds::gitcreds_set()
+```
+
+
+## Workflow
+
+Once the package has been set up, the workflow is: 
+
+- create a script  
+- creative cycle  
+  - edit  
+  - load  
+  - test  
+- commit
+- check
+- document
+- install
+
+
+
+
+
+
