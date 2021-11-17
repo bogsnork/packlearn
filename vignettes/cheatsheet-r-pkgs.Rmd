@@ -38,7 +38,9 @@ use_mit_license("My Name")
 use_package("MASS", "Suggests")
 
 # Set up other files 
-use_readme_md()
+use_readme_rmd()
+  #to update readme
+  build_readme()
 
 # use test-that
 use_testthat()
